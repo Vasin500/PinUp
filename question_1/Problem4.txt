@@ -1,0 +1,127 @@
+ข้อมูลเริ่มต้น
+BOX1 = 860
+BOX2 = 15
+BOX3 = 1
+BOX4 = 1
+BOX5 = 3
+
+เริ่ม
+LINE1: DOUBLE-JUMP5
+BOX5= 3x2 = 6
+ตามเงื่อนไข(Y+X)= (1+5) = 6 ไป LINE6
+
+LINE6: BOX3= BOX4 + BOX3
+BOX3= 1+1 = 2
+โจทย์ให้ไป LINE2
+
+LINE2: DOUBLE-JUMP3
+BOX3= 2x2 = 4
+ตามเงื่อนไข(Y+X)= 2+3 = 5 ไป LINE5
+
+LINE5: BOX4=BOX3+BOX4
+BOX4= 4+1 = 5
+โจทย์ให้ไป LINE3
+
+LINE3: BOX2=BOX5+BOX2
+BOX2= 6+15 = 21
+โจทย์ให้ไป LINE7
+
+LINE7: BOX2 > 100?
+21 > 100 BOX2ไม่มากกว่า100
+ทำให้ไปที่ LINE8
+
+LINE8: BOX2 > 50?
+21 > 50 BOX2ไม่มากกว่า50
+ทำให้ไปที่ LINE1
+
+LINE1: DOUBLE-JUMP5
+BOX5= 6x2 = 12
+ตามเงื่อนไข(Y+X)= (1+5) = 6 ไป LINE6
+
+LINE6: BOX3=BOX4+BOX3
+BOX3= 5+4 = 9
+โจทย์ให้ไป LINE2
+
+LINE2: DOUBLE-JUMP3
+BOX3= 9x2 = 18
+ตามเงื่อนไข(Y+X)= (2+3) = 5 ไป LINE5
+
+LINE5: BOX4=BOX3+BOX4
+BOX4= 18+5 = 23
+โจทย์ให้ไป LINE3
+
+LINE3: BOX2=BOX5+BOX2
+BOX2= 12+21 = 33
+โจทย์ให้ไป LINE7
+
+LINE7: BOX2 > 100?
+33 > 100 BOX2ไม่มากกว่า100
+ทำให้ไปที่ LINE8
+
+LINE8: BOX2 > 50?
+21 > 50 BOX2ไม่มากกว่า50
+ทำให้ไปที่ LINE1
+
+LINE1: DOUBLE-JUMP5
+BOX5= 12x2 = 24
+ตามเงื่อนไข(Y+X)= (1+5) = 6 ไป LINE6
+
+LINE6: BOX3=BOX4+BOX3
+BOX3= 23+18 = 41
+โจทย์ให้ไป LINE2
+
+LINE2: DOUBLE-JUMP3
+BOX3= 41x2 = 82
+ตามเงื่อนไข(Y+X)= (2+3) = 5 ไป LINE5
+
+LINE5: BOX4=BOX3+BOX4
+BOX4= 82+23 = 105
+โจทย์ให้ไป LINE3
+
+LINE3: BOX2=BOX5+BOX2
+BOX2= 24+33 = 57
+โจทย์ให้ไป LINE7
+
+LINE7: BOX2 > 100?
+57 > 100 BOX2ไม่มากกว่า100
+ทำให้ไปที่ LINE8
+
+LINE8: BOX2 > 50?
+57 > 50 BOX2มากกว่า50
+ทำให้ไปที่ LINE4
+
+LINE4: Copy BOX3 ไปที่ ANSWER BOX A
+ANSWER A= BOX3 = 82
+โจทย์ให้ไป LINE1
+
+LINE1: DOUBLE BOX5
+BOX5 = 24x2 = 48
+ตามเงื่อนไข(Y+X)= (1+5) = 6 ไป LINE6
+
+LINE6: BOX3=BOX4+BOX3
+BOX3 = 105+82 = 187
+โจทย์ให้ไป LINE2
+
+LINE2: DOUBLE BOX3
+BOX3 = 187x2 = 374
+ตามเงื่อนไข(Y+X)= (2+3) = 5 ไป LINE5
+
+LINE5: BOX4=BOX3+BOX4
+BOX4 = 374+105 = 479
+โจทย์ให้ไป LINE3
+
+LINE3:BOX2=BOX5+BOX2
+BOX2 = 48+57 = 105
+โจทย์ให้ไป LINE7
+
+LINE7: BOX2 > 100?
+105 > 100 BOX2มากกว่า100
+ทำให้ไปที่ LINE9
+
+LINE9: Copy BOX3 ไปที่ ANSWER BOX B
+ANSWER B= BOX3 = 374
+ไป LINE10 STOP
+
+ตอบ
+ANSWER BOX A = 82
+ANSWER BOX B = 374
