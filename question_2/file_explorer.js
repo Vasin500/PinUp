@@ -1,13 +1,9 @@
 const readline = require('readline');
-
 class FileExplorer {
     constructor() {
-        // เริ่มต้นที่ Root (/) และยังไม่มีไฟล์หรือไดเรกทอรีใดๆ
         this.root = { name: "", type: "dir", children: {}, parent: null };
         this.current = this.root;
     }
-
-    // cwd - พิมพ์ absolute path ปัจจุบัน
     getCwd() {
         let path = "";
         let temp = this.current;
@@ -17,7 +13,6 @@ class FileExplorer {
         }
         return path === "" ? "/" : path;
     }
-
     execute(input) {
         const parts = input.trim().split(/\s+/);
         const command = parts[0];
@@ -36,7 +31,6 @@ class FileExplorer {
                     console.log(`${arg} already exists`);
                 } else {
                     this.current.children[arg] = { name: arg, type: "dir", children: {}, parent: this.current };
-                    // ตามตารางตัวอย่าง mkdir ไม่แสดงผลอะไรเพิ่มเติม
                 }
                 break;
             case 'touch':
@@ -54,7 +48,6 @@ class FileExplorer {
                 break;
         }
     }
-
     handleCd(path) {
         if (!path || path === "") return;
         if (path === "/") {
@@ -92,13 +85,10 @@ class FileExplorer {
 
 const explorer = new FileExplorer();
 const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
-
-// ฟังก์ชันรอรับคำสั่งไปเรื่อยๆ จนกว่าจะ exit
 const ask = () => {
     rl.question('', (input) => {
         if (input.trim()) explorer.execute(input);
         ask();
     });
 };
-
 ask();
